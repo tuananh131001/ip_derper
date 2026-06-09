@@ -1,7 +1,5 @@
 FROM golang:latest AS builder
 
-LABEL org.opencontainers.image.source https://github.com/yangchuansheng/ip_derper
-
 WORKDIR /app
 
 ADD tailscale /app/tailscale
@@ -12,7 +10,7 @@ RUN cd /app/tailscale/cmd/derper && \
     cd /app && \
     rm -rf /app/tailscale
 
-FROM ubuntu:20.04
+FROM ubuntu:latest
 WORKDIR /app
 
 # ========= CONFIG =========
